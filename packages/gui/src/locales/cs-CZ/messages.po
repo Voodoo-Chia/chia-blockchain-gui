@@ -3322,4 +3322,3 @@ msgstr "{0} bodů {1} - před {2} hodinami"
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:118
 msgid "{warning}"
 msgstr ""
-

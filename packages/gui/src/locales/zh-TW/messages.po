@@ -3322,4 +3322,3 @@ msgstr "{0} 積分 {1} - {2} 小時前"
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:118
 msgid "{warning}"
 msgstr ""
-

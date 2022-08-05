@@ -50,6 +50,10 @@ msgstr ""
 #~ msgid "128 buckets is recommended"
 #~ msgstr "128 buckets is recommended"
 
+#: src/components/EstimatedFee/EstimatedFee.tsx:109
+msgid "<0>{0}</0>"
+msgstr ""
+
 #: src/components/farm/FarmYourHarvesterNetwork.tsx:96
 #~ msgid "A harvester is a service running on a machine where plot(s) are actually stored. A farmer and harvester talk to a full node to see the state of the chain. View your network of connected harvesters below Learn more"
 #~ msgstr "A harvester is a service running on a machine where plot(s) are actually stored. A farmer and harvester talk to a full node to see the state of the chain. View your network of connected harvesters below Learn more"
@@ -855,6 +859,10 @@ msgstr "Ошибка:"
 #~ msgid "Estimated sum of all the plotted disk space of all farmers in the network"
 #~ msgstr "Estimated sum of all the plotted disk space of all farmers in the network"
 
+#: src/components/EstimatedFee/EstimatedFee.tsx:81
+#~ msgid "EstimatedFee"
+#~ msgstr ""
+
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:279
 #~ msgid "Exclude final directory"
 #~ msgstr "Exclude final directory"
@@ -953,6 +961,7 @@ msgstr "Фарминг"
 #~ msgid "Farming Status"
 #~ msgstr "Farming Status"
 
+#: src/components/EstimatedFee/EstimatedFee.tsx:131
 #: src/components/Fee/Fee.tsx:52
 msgid "Fee"
 msgstr "Комиссия"
@@ -972,6 +981,10 @@ msgstr "Комиссия"
 #: src/components/plotNFT/PlotNFTChangePool.tsx:126
 #~ msgid "Fee is used TWICE: once to leave pool, once to join."
 #~ msgstr "Fee is used TWICE: once to leave pool, once to join."
+
+#: src/components/Fee/Fee.tsx:58
+#~ msgid "FeeHello"
+#~ msgstr ""
 
 #: src/components/block/Block.jsx:310
 #~ msgid "Fees Amount"
@@ -3174,6 +3187,10 @@ msgstr "Ваши ключи не были перенесены в новую с�
 msgid "{0, plural, one {mojo} other {mojos}}"
 msgstr "{0, plural, one {mojo} other {mojos}}"
 
+#: src/components/EstimatedFee/EstimatedFee.tsx:55
+#~ msgid "{0}"
+#~ msgstr ""
+
 #: src/components/farm/card/FarmCardBlockRewards.tsx:16
 #~ msgid "{0} Block Rewards"
 #~ msgstr "{0} Block Rewards"
@@ -3187,9 +3204,25 @@ msgstr "{0, plural, one {mojo} other {mojos}}"
 #~ msgid "{0} buckets is recommended"
 #~ msgstr "{0} buckets is recommended"
 
+#: src/components/EstimatedFee/EstimatedFee.tsx:106
+msgid "{0} mojos"
+msgstr ""
+
 #: src/components/plotNFT/PlotNFTGraph.tsx:111
 #~ msgid "{0} points {1} - {2} hours ago"
 #~ msgstr "{0} points {1} - {2} hours ago"
+
+#: src/components/EstimatedFee/EstimatedFee.tsx:53
+#~ msgid "{0} seconds:"
+#~ msgstr ""
+
+#: src/components/EstimatedFee/EstimatedFee.tsx:54
+#~ msgid "{0} seconds: {1}"
+#~ msgstr ""
+
+#: src/components/EstimatedFee/EstimatedFee.tsx:54
+#~ msgid "{0} seconds: {1} mojos"
+#~ msgstr ""
 
 #: src/components/farm/card/FarmCardBlockRewards.tsx:35
 #~ msgid "{currencyCode} Block Rewards"
@@ -3214,4 +3247,3 @@ msgstr ""
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:118
 #~ msgid "{warning}"
 #~ msgstr "{warning}"
-

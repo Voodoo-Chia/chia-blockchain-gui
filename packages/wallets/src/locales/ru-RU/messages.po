@@ -175,7 +175,7 @@ msgstr "Добавление {0} токенов"
 msgid "Address"
 msgstr "Адрес"
 
-#: src/components/WalletSend.tsx:154
+#: src/components/WalletSend.tsx:161
 #: src/components/cat/WalletCATSend.tsx:196
 #: src/components/rateLimited/WalletRateLimited.jsx:700
 msgid "Address / Puzzle hash"
@@ -194,7 +194,7 @@ msgstr "Адрес / Хэш-головоломка"
 #~ msgstr "Alternate tmpdir/tmpdir2"
 
 #: src/components/WalletHistory.tsx:165
-#: src/components/WalletSend.tsx:164
+#: src/components/WalletSend.tsx:171
 #: src/components/cat/WalletCATSend.tsx:207
 #: src/components/offers/OfferEditorConditionsPanel.tsx:121
 #: src/components/offers/OfferViewer.tsx:226
@@ -694,11 +694,15 @@ msgstr "Создать кошелек пользователя с огранич
 #~ msgid "Create Trade Offer"
 #~ msgstr "Create Trade Offer"
 
-#: src/components/WalletSend.tsx:136
+#: src/components/WalletSend.tsx:143
 #: src/components/cat/WalletCATSend.tsx:177
 #: src/components/rateLimited/WalletRateLimited.jsx:683
 msgid "Create Transaction"
 msgstr "Создать транзакцию"
+
+#: src/components/WalletSend.tsx:141
+#~ msgid "Create Transactionnn"
+#~ msgstr ""
 
 #: src/components/backup/BackupCreate.tsx:41
 #~ msgid "Create a Backup"
@@ -1016,6 +1020,10 @@ msgstr "Ошибка введенный адрес, кажется, для др�
 #~ msgid "Error: Cannot send chia to coloured address. Please enter a chia address."
 #~ msgstr "Error: Cannot send chia to colored address. Please enter a chia address."
 
+#: src/components/WalletSend.tsx:182
+msgid "Estimated Fee"
+msgstr ""
+
 #: src/components/fullNode/card/FullNodeEstimatedNetworkSpace.tsx:14
 #~ msgid "Estimated Network Space"
 #~ msgstr "Estimated Network Space"
@@ -1071,7 +1079,7 @@ msgstr ""
 #~ msgid "Failed to update passphrase: {error}"
 #~ msgstr "Failed to update passphrase: {error}"
 
-#: src/components/WalletSend.tsx:184
+#: src/components/WalletSend.tsx:192
 #: src/components/cat/WalletCATSend.tsx:241
 msgid "Farm"
 msgstr "Ферма"
@@ -1134,7 +1142,6 @@ msgstr "Ферма"
 #~ msgstr "Farming Status"
 
 #: src/components/WalletHistory.tsx:177
-#: src/components/WalletSend.tsx:175
 #: src/components/cat/WalletCATSend.tsx:220
 #: src/components/create/createRLAdmin.jsx:243
 #: src/components/create/createRLAdmin.jsx:271
@@ -1392,12 +1399,14 @@ msgid "Install Keybase"
 msgstr ""
 
 #: src/components/offers/OfferViewer.tsx:358
-msgid "Insufficient funds available to accept offer. Ensure that your\n"
+msgid ""
+"Insufficient funds available to accept offer. Ensure that your\n"
 "spendable balance is sufficient to cover the offer amount."
 msgstr ""
 
 #: src/components/offers/OfferEditor.tsx:166
-msgid "Insufficient funds available to create offer. Ensure that your\n"
+msgid ""
+"Insufficient funds available to create offer. Ensure that your\n"
 "spendable balance is sufficient to cover the offer amount."
 msgstr ""
 
@@ -1852,7 +1861,7 @@ msgstr "Предложения, которые вы приняли"
 msgid "Offers you created"
 msgstr "Заявки, которые вы создали"
 
-#: src/components/WalletSend.tsx:139
+#: src/components/WalletSend.tsx:146
 #: src/components/cat/WalletCATSend.tsx:180
 msgid "On average there is one minute between each transaction block. Unless there is congestion you can expect your transaction to be included in less than a minute."
 msgstr "В среднем между каждым блоком транзакций проходит одна минута. Если нет перегрузки, вы можете ожидать что ваша транзакция будет включена менее чем за минуту."
@@ -2691,7 +2700,7 @@ msgstr "Выбранный файл восстановления:"
 #~ msgstr "Sell"
 
 #: src/components/WalletHeader.tsx:59
-#: src/components/WalletSend.tsx:194
+#: src/components/WalletSend.tsx:202
 #: src/components/cat/WalletCATSend.tsx:251
 #: src/components/rateLimited/WalletRateLimited.jsx:747
 msgid "Send"
@@ -3796,4 +3805,3 @@ msgstr "{mojos, plural, one {моджо} other {моджо}}"
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:118
 #~ msgid "{warning}"
 #~ msgstr "{warning}"
-

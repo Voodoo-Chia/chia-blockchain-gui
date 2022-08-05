@@ -3322,4 +3322,3 @@ msgstr "{0} pikë {1} - {2} orë më parë"
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:118
 msgid "{warning}"
 msgstr ""
-
