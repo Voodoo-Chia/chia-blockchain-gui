@@ -31,14 +31,16 @@ const StyledFingerprintListItem = styled(ListItem)`
 
 type Props = {
   fingerprint: number;
+  label?: string;
   disabled?: boolean;
   loading?: boolean;
   onSelect: (fingerprint: number) => void;
 };
 
 export default function SelectKeyItem(props: Props) {
-  const { fingerprint, onSelect, disabled, loading } = props;
-  const { data: keyringState, isLoading: isLoadingKeyringStatus } = useGetKeyringStatusQuery();
+  const { fingerprint, label, onSelect, disabled, loading } = props;
+  const { data: keyringState, isLoading: isLoadingKeyringStatus } =
+    useGetKeyringStatusQuery();
   const openDialog = useOpenDialog();
   const [deleteKey] = useDeleteKeyMutation();
   const [checkDeleteKey] = useCheckDeleteKeyMutation();
@@ -52,9 +54,7 @@ export default function SelectKeyItem(props: Props) {
   function handleShowKey(event) {
     event.stopPropagation();
 
-    openDialog((
-      <SelectKeyDetailDialog fingerprint={fingerprint} />
-    ));
+    openDialog(<SelectKeyDetailDialog fingerprint={fingerprint} />);
   }
 
   async function handleDeletePrivateKey(event) {
@@ -67,17 +67,17 @@ export default function SelectKeyItem(props: Props) {
     event.stopPropagation();
 
     const {
-      data: {
-        usedForFarmerRewards,
-        usedForPoolRewards,
-        walletBalance,
-    } } = await checkDeleteKey({
+      data: { usedForFarmerRewards, usedForPoolRewards, walletBalance },
+    } = await checkDeleteKey({
       fingerprint,
     });
 
     async function handleKeyringMutator(): Promise<boolean> {
       // If the keyring requires migration and the user previously skipped migration, prompt again
-      if (isLoadingKeyringStatus || (keyringState?.needsMigration && skippedMigration)) {
+      if (
+        isLoadingKeyringStatus ||
+        (keyringState?.needsMigration && skippedMigration)
+      ) {
         await promptForKeyringMigration();
 
         return false;
@@ -97,17 +97,18 @@ export default function SelectKeyItem(props: Props) {
         {usedForFarmerRewards && (
           <Alert severity="warning">
             <Trans>
-              Warning: This key is used for your farming rewards address.
-              By deleting this key you may lose access to any future farming rewards
-              </Trans>
+              Warning: This key is used for your farming rewards address. By
+              deleting this key you may lose access to any future farming
+              rewards
+            </Trans>
           </Alert>
         )}
 
         {usedForPoolRewards && (
           <Alert severity="warning">
             <Trans>
-              Warning: This key is used for your pool rewards address.
-              By deleting this key you may lose access to any future pool rewards
+              Warning: This key is used for your pool rewards address. By
+              deleting this key you may lose access to any future pool rewards
             </Trans>
           </Alert>
         )}
@@ -115,8 +116,8 @@ export default function SelectKeyItem(props: Props) {
         {walletBalance && (
           <Alert severity="warning">
             <Trans>
-              Warning: This key is used for a wallet that may have a non-zero balance.
-              By deleting this key you may lose access to this wallet
+              Warning: This key is used for a wallet that may have a non-zero
+              balance. By deleting this key you may lose access to this wallet
             </Trans>
           </Alert>
         )}
@@ -125,7 +126,7 @@ export default function SelectKeyItem(props: Props) {
           Deleting the key will permanently remove the key from your computer,
           make sure you have backups. Are you sure you want to continue?
         </Trans>
-      </ConfirmDialog>,
+      </ConfirmDialog>
     );
   }
 
@@ -139,13 +140,13 @@ export default function SelectKeyItem(props: Props) {
       >
         <ListItemText
           primary={
-            <Trans>
-              Private key with public fingerprint {fingerprint}
-            </Trans>
+            label ? (
+              label
+            ) : (
+              <Trans>Private key with public fingerprint {fingerprint}</Trans>
+            )
           }
-          secondary={
-            <Trans>Can be backed up to mnemonic seed</Trans>
-          }
+          secondary={<Trans>Can be backed up to mnemonic seed</Trans>}
         />
         <ListItemSecondaryAction>
           <Tooltip title={<Trans>See private key</Trans>}>
@@ -159,11 +160,7 @@ export default function SelectKeyItem(props: Props) {
             </IconButton>
           </Tooltip>
           <Tooltip
-            title={
-              <Trans>
-                DANGER: permanently delete private key
-              </Trans>
-            }
+            title={<Trans>DANGER: permanently delete private key</Trans>}
           >
             <IconButton
               edge="end"

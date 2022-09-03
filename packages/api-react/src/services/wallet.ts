@@ -34,6 +34,7 @@ const apiWithTag = api.enhanceEndpoints({
     'DIDRecoveryList',
     'DIDWallet',
     'Keys',
+    'KeyData',
     'LoggedInFingerprint',
     'NFTInfo',
     'NFTWalletWithDID',
@@ -567,7 +568,10 @@ export const walletApi = apiWithTag.injectEndpoints({
         args: [mnemonic, type, filePath],
       }),
       transformResponse: (response: any) => response?.fingerprint,
-      invalidatesTags: [{ type: 'Keys', id: 'LIST' }],
+      invalidatesTags: [
+        { type: 'Keys', id: 'LIST' },
+        { type: 'KeyData', id: 'LIST' },
+      ],
     }),
 
     deleteKey: build.mutation<
@@ -583,6 +587,7 @@ export const walletApi = apiWithTag.injectEndpoints({
       }),
       invalidatesTags: (_result, _error, { fingerprint }) => [
         { type: 'Keys', id: fingerprint },
+        { type: 'KeyData', id: fingerprint },
       ],
     }),
 
