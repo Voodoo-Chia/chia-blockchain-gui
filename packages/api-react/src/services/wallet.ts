@@ -1904,13 +1904,40 @@ export const walletApi = apiWithTag.injectEndpoints({
       },
     }),
 
-    getNFTsCount: build.query<any, { walletId: number }>({
-      query: ({ walletId }) => ({
-        command: 'getNftsCount',
-        service: NFT,
-        args: [walletId],
-      }),
-      providesTags: (result, _error, { walletId }) => (result ? [{ type: 'NFTCount', id: walletId }] : []),
+    getNFTsCount: build.query<any, { walletIds: number[] }>({
+      async queryFn(args, _queryApi, _extraOptions, fetchWithBQ) {
+        try {
+          const nftCountsByWalletId: { [walletId: number]: number }[] = await Promise.all(
+            args.walletIds.map(async (walletId) => {
+              const { data: nftCountData, error: nftCountError } = await fetchWithBQ({
+                command: 'getNftsCount',
+                service: NFT,
+                args: [walletId],
+              });
+
+              if (nftCountError) {
+                throw nftCountError as Error;
+              }
+
+              return { [walletId]: nftCountData.count };
+            })
+          );
+
+          const totalCount = nftCountsByWalletId.reduce((a, b) => a + Object.values(b)[0], 0);
+
+          return {
+            data: {
+              total: totalCount,
+              countsByWalletId: nftCountsByWalletId,
+            },
+          };
+        } catch (error: any) {
+          return {
+            error,
+          };
+        }
+      },
+      providesTags: (result) => (result ? [{ type: 'NFTCount', id: 'LIST' }] : []),
     }),
 
     getNFTs: build.query<{ [walletId: number]: NFTInfo[] }, { walletIds: number[] }>({
