@@ -627,7 +627,7 @@ export const walletApi = apiWithTag.injectEndpoints({
         service: WalletService,
         args: [fingerprint, type, filePath, host],
       }),
-      invalidatesTags: ['LoggedInFingerprint'],
+      invalidatesTags: ['LoggedInFingerprint', 'Address', 'Wallets', 'Transactions', 'WalletBalance', 'Notification'],
     }),
 
     logInAndSkipImport: build.mutation<
