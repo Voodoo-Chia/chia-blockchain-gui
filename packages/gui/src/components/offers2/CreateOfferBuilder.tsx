@@ -114,6 +114,7 @@ export default function CreateOfferBuilder(props: CreateOfferBuilderProps) {
       try {
         const response = await createOfferForIds({
           ...localOffer,
+          offer: localOffer.walletIdsAndAmounts,
           disableJSONFormatting: true,
         }).unwrap();
 
